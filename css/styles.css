@@ -1,0 +1,165 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3, h4 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    height: 400px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+}
+
+/* Featured Categories Section */
+.category-box {
+    transition: transform 0.3s ease;
+}
+
+.category-box:hover {
+    transform: translateY(-10px);
+}
+
+.category-box i {
+    color: #fff;
+}
+
+.category-box h4 {
+    font-size: 1.5rem;
+}
+
+/* Event Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #777;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #ff7e5f;
+    border-color: #ff7e5f;
+}
+
+.btn-primary:hover {
+    background-color: #feb47b;
+    border-color: #feb47b;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Search and Filter Inputs */
+input[type="text"], select, input[type="date"] {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus, select:focus, input[type="date"]:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+input[type="text"] {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .category-box i {
+        font-size: 3rem;
+    }
+
+    .category-box h4 {
+        font-size: 1.3rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+}
