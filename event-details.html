@@ -13,29 +13,32 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Custom JavaScript -->
-    <script defer src="js/app.js"></script>
-    <a class="navbar-brand text-light fw-bold" href="index.html">
-        <i class="fas fa-calendar-alt me-2"></i>Event Locator
-        <a class="navbar-brand text-dark fw-bold" href="events.html">
-            <i class="fas fa-calendar-alt me-2"></i>Event Locator
-        </a>
-        <!-- Links to Event List -->
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="events.html">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-        </ul>
-         
+    <script defer src="js/event-details.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-gradient">
         <div class="container">
-            <a class="navbar-brand text-light fw-bold" href="index.html">
+            <a class="navbar-brand text-dark fw-bold" href="index.html">
                 <i class="fas fa-calendar-alt me-2"></i>Event Locator
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="index.html">
+                            <i class="fas fa-home me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="events.html">
+                            <i class="fas fa-calendar-alt me-2"></i>Events
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -44,70 +47,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h1 id="event-title" class="display-4 fw-bold">Event Title</h1>
-                    <p id="event-location" class="lead text-muted">Location | Date & Time</p>
-                    <p id="event-description" class="my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet nulla vitae enim dictum fermentum.</p>
-                    <h4>Additional Information</h4>
-                    <ul>
-                        <li><strong>Category:</strong> Music</li>
-                        <li><strong>Price:</strong> Free / $10</li>
-                        <li><strong>Contact:</strong> event@organizer.com</li>
-                    </ul>
+                    <div class="card shadow-lg">
+                        <img id="event-image" src="https://localmedia.org/wp-content/uploads/2021/06/events-1.png" alt="Event Image" class="card-img-top" style="max-height: 300px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h1 id="event-title" class="fw-bold mb-3">Loading...</h1>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <span id="event-location" class="text-muted">Loading...</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span id="event-date" class="text-muted">Loading...</span>
+                            </div>
+                            <div class="mb-4">
+                                <h5>About This Event</h5>
+                                <p id="event-description">Loading event details...</p>
+                            </div>
+                            <div class="mb-4">
+                                <h5>Additional Information</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong>Category:</strong> <span id="event-category">Loading...</span></li>
+                                    <li class="list-group-item"><strong>Price:</strong> <span id="event-price">Loading...</span></li>
+                                </ul>
+                            </div>
+                            <div class="text-center mt-4">
+                                <a href="events.html" id="back-to-events" class="btn btn-outline-primary me-2">Back to Events</a>
+                                <button class="btn btn-success" id="register-button">Register</button>
+                                <button class="btn btn-info" id="share-button">Share</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <script>
-        // Get the event ID from the URL query string
-        const urlParams = new URLSearchParams(window.location.search);
-        const eventId = urlParams.get("id");
-        
-        // Sample event data (in a real-world scenario, this could be fetched from a database)
-        const eventsData = [
-            {
-                id: 1,
-                name: "Rock Concert",
-                date: "2025-03-25",
-                location: "City Arena",
-                description: "Join us for an electrifying rock concert!",
-                category: "Music"
-            },
-            {
-                id: 2,
-                name: "Football Match",
-                date: "2025-03-28",
-                location: "Stadium 7",
-                description: "A thrilling football match between top teams.",
-                category: "Sports"
-            },
-            {
-                id: 3,
-                name: "Art Gallery Opening",
-                date: "2025-04-02",
-                location: "Art Museum",
-                description: "A grand opening for a new art exhibition.",
-                category: "Arts"
-            }
-        ];
-        
-        // Find the event by ID
-        const event = eventsData.find(event => event.id === parseInt(eventId));
-        
-        // Display the event details
-        document.getElementById("event-name").textContent = event.name;
-        document.getElementById("event-date").textContent = event.date;
-        document.getElementById("event-location").textContent = event.location;
-        document.getElementById("event-description").textContent = event.description;
-        document.getElementById("event-category").textContent = event.category;
-        </script>
-        
-        <h3 id="event-name"></h3>
-        <p><strong>Date:</strong> <span id="event-date"></span></p>
-        <p><strong>Location:</strong> <span id="event-location"></span></p>
-        <p><strong>Description:</strong> <span id="event-description"></span></p>
-        <p><strong>Category:</strong> <span id="event-category"></span></p>
-        
 
     <!-- Footer -->
     <footer class="text-white py-4 bg-dark">
